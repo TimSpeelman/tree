@@ -1,0 +1,16 @@
+{
+    "transform": {
+        ".(ts|tsx)": "ts-jest"
+    },
+    "testPathIgnorePatterns": [
+        "/node_modules/",
+        "/dist/"
+    ],
+    "moduleFileExtensions": [
+        "ts",
+        "tsx",
+        "js"
+    ],
+    "moduleNameMapper": {
+    }
+}
