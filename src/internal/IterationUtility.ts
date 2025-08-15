@@ -1,6 +1,7 @@
 export class IterationUtility<T> {
     constructor(private makeIterable: () => Iterable<T>) {}
 
+    /** Check if all elements satisfy the condition. */
     every(condition: (n: T) => boolean): boolean {
         for (const node of this.makeIterable()) {
             if (!condition(node)) {
@@ -10,6 +11,7 @@ export class IterationUtility<T> {
         return true;
     }
 
+    /** Filter elements based on the condition. */
     filter(condition: (n: T) => boolean): T[] {
         const result: T[] = [];
         for (const node of this.makeIterable()) {
@@ -20,6 +22,7 @@ export class IterationUtility<T> {
         return result;
     }
 
+    /** Find the first element that satisfies the condition. */
     find(condition: (n: T) => boolean): T | undefined {
         for (const node of this.makeIterable()) {
             if (condition(node)) {
@@ -29,6 +32,7 @@ export class IterationUtility<T> {
         return undefined;
     }
 
+    /** Map each element to a new value. */
     flatMap<Result>(fn: (n: T) => Result[]): Result[] {
         const result: Result[] = [];
         for (const node of this.makeIterable()) {
@@ -37,12 +41,14 @@ export class IterationUtility<T> {
         return result;
     }
 
+    /** Execute a function for each element. */
     forEach(fn: (n: T) => void): void {
         for (const node of this.makeIterable()) {
             fn(node);
         }
     }
 
+    /** Map each element to a new value. */
     map<Result>(fn: (n: T) => Result): Result[] {
         const result: Result[] = [];
         for (const node of this.makeIterable()) {
@@ -51,6 +57,7 @@ export class IterationUtility<T> {
         return result;
     }
 
+    /** Reduce the elements to a single value. */
     reduce<Result>(fn: (acc: Result, n: T) => Result, initialValue: Result): Result {
         let accumulator = initialValue;
         for (const node of this.makeIterable()) {
@@ -59,6 +66,7 @@ export class IterationUtility<T> {
         return accumulator;
     }
 
+    /** Check if any element satisfies the condition. */
     some(condition: (n: T) => boolean): boolean {
         for (const node of this.makeIterable()) {
             if (condition(node)) {
@@ -68,6 +76,7 @@ export class IterationUtility<T> {
         return false;
     }
 
+    /** Take the first n elements. */
     take(count: number): T[] {
         const result: T[] = [];
         let taken = 0;
@@ -82,6 +91,7 @@ export class IterationUtility<T> {
         return result;
     }
 
+    /** Take elements while the condition is satisfied. */
     takeWhile(condition: (n: T) => boolean): T[] {
         const result: T[] = [];
         for (const node of this.makeIterable()) {
@@ -94,6 +104,7 @@ export class IterationUtility<T> {
         return result;
     }
 
+    /** Convert the iterable to an array. */
     toArray(): T[] {
         return Array.from(this.makeIterable());
     }

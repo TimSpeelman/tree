@@ -2,40 +2,53 @@ import { IterationUtility } from "./IterationUtility";
 import { NodeWithContext } from "./NodeWithContext";
 import { TreeNode } from "./Tree";
 
+/** Traversal orders. */
 export enum Order {
+    /** Level order: start with all items from level 0, then all from level 1 and so on */
     LEVEL,
+    /** Pre-order: start with the root, then all items from the left subtree, then all from the right subtree */
     PRE,
+    /** Post-order: start with all items from the left subtree, then all from the right subtree, then the root */
     POST,
+    /** Reverse level order: start with all items from level 0 in reverse order, then all from level 1 in reverse order, and so on */
     LEVEL_REV,
+    /** Reverse pre-order: start with the root, then all items from the right subtree, then all from the left subtree */
     PRE_REV,
+    /** Reverse post-order: start with all items from the right subtree, then all from the left subtree, then the root */
     POST_REV
 };
 
+/** Create iterator of nodes in level order. */
 export function levelOrder<El>(nodes: TreeNode<El>[], depth = 0 ) {
     return new IterationUtility<NodeWithContext<El>>(() => makeLevelOrderIterable(nodes, depth));
 }
 
+/** Create iterator of nodes in pre-order. */
 export function preOrder<El>(nodes: TreeNode<El>[], depth = 0) {
     return new IterationUtility<NodeWithContext<El>>(() => makePreOrderIterable(nodes, depth));
 }
 
+/** Create iterator of nodes in post-order. */
 export function postOrder<El>(nodes: TreeNode<El>[], depth = 0) {
     return new IterationUtility<NodeWithContext<El>>(() => makePostOrderIterable(nodes, depth));
 }
 
+/** Create iterator of nodes in reverse level order. */
 export function levelOrderRev<El>(nodes: TreeNode<El>[], depth = 0) {
     return new IterationUtility<NodeWithContext<El>>(() => makeLevelOrderIterable(nodes, depth, true));
 }
 
+/** Create iterator of nodes in reverse pre-order. */
 export function preOrderRev<El>(nodes: TreeNode<El>[], depth = 0) {
     return new IterationUtility<NodeWithContext<El>>(() => makePreOrderIterable(nodes, depth, true));
 }
 
+/** Create iterator of nodes in reverse post-order. */
 export function postOrderRev<El>(nodes: TreeNode<El>[], depth = 0) {
     return new IterationUtility<NodeWithContext<El>>(() => makePostOrderIterable(nodes, depth, true));
 }
 
-
+/** Create iterator of nodes in the specified order. */
 export function makeIterable<El>(
     nodes: TreeNode<El>[],
     order: Order,
@@ -57,7 +70,7 @@ export function makeIterable<El>(
     }
 }
 
-export function* makeLevelOrderIterable<El>(
+function* makeLevelOrderIterable<El>(
     nodes: TreeNode<El>[],
     depth = 0,
     reverse = false
@@ -93,7 +106,7 @@ export function* makeLevelOrderIterable<El>(
     }
 }
 
-export function* makePreOrderIterable<El>(
+function* makePreOrderIterable<El>(
     nodes: TreeNode<El>[],
     depth = 0,
     reverse = false
@@ -130,7 +143,7 @@ export function* makePreOrderIterable<El>(
     }
 }
 
-export function* makePostOrderIterable<El>(
+function* makePostOrderIterable<El>(
     nodes: TreeNode<El>[],
     depth = 0,
     reverse = false

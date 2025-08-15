@@ -1,13 +1,13 @@
-import { printTree } from './printTree';
+import { stringifyTree } from './stringifyTree';
 import { TreeNode } from './Tree';
 import { preOrder } from './iterators';
 import { sampleTree } from './sample';
 
-describe('printTree', () => {
+describe('stringifyTree', () => {
     const toString = (el: number) => `N${el}`;
 
-    it('prints a tree', () => {
-        const result = printTree([sampleTree], toString);
+    it('stringifies a tree', () => {
+        const result = stringifyTree([sampleTree], toString);
         expect(result).toBe(
             ` N0
 | N1
@@ -21,7 +21,7 @@ describe('printTree', () => {
     });
 
     it('uses custom prefix', () => {
-        const result = printTree([sampleTree], toString, '--');
+        const result = stringifyTree([sampleTree], toString, '--');
         expect(result).toBe(
             ` N0
 -- N1
@@ -35,7 +35,7 @@ describe('printTree', () => {
     });
 
     it('handles empty nodes array', () => {
-        const result = printTree([], toString);
+        const result = stringifyTree([], toString);
         expect(result).toBe('');
     });
 });
