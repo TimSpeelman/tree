@@ -7,6 +7,7 @@
         "esModuleInterop": true,
         "baseUrl": "./",
         "rootDir": "./",
+        "outDir": "./dist/tsc/",
         "sourceMap": true,
         "declarationMap": true,
         "skipLibCheck": true,
@@ -15,12 +16,8 @@
         "strictNullChecks": true,
         "noImplicitAny": true,
         "allowUnreachableCode": false,
-        "resolveJsonModule": true,
+        "resolveJsonModule": true
     },
-    "exclude": [
-        "**/node_modules/**"
-    ],
-    "include": [
-        "src/**/*"
-    ]
+    "exclude": ["**/node_modules/**"],
+    "include": ["src/**/*"]
 }
