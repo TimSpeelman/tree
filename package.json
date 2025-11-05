@@ -4,8 +4,8 @@
     "private": false,
     "description": "",
     "sideEffects": false,
-    "main": "./dist/tsc/main.js",
-    "types": "./dist/tsc/main.d.ts",
+    "main": "./dist/tsc/src/index.js",
+    "types": "./dist/tsc/src/index.d.ts",
     "author": "Tim Speelman",
     "license": "MIT",
     "files": [
