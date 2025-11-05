@@ -1,4 +1,3 @@
-import { flattenTree } from './flattenTree';
 import { unflattenTree } from './unflattenTree';
 import { TreeNode } from './Tree';
 
