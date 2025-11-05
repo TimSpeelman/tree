@@ -1,7 +1,7 @@
 {
     "name": "@timmehx/tree",
     "version": "0.0.2",
-    "private": true,
+    "private": false,
     "description": "",
     "sideEffects": false,
     "main": "./dist/tsc/main.js",
