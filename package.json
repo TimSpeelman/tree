@@ -6,7 +6,6 @@
     "sideEffects": false,
     "main": "./dist/tsc/main.js",
     "types": "./dist/tsc/main.d.ts",
-    "browser": "./dist/esbuild/browser.js",
     "author": "Tim Speelman",
     "license": "MIT",
     "files": [
@@ -24,7 +23,7 @@
         "ts-node": "ts-node",
         "docs": "typedoc --entryPoints src/main.ts",
         "build": "tsc -p tsconfig.json",
-        "build-all": "npm run clean && npm run build && npm run esbuild-browser",
+        "build-all": "npm run clean && npm run build ",
         "esbuild-browser": "esbuild src/browser.ts --bundle --minify --sourcemap=external --outfile=dist/esbuild/browser.js",
         "esbuild-browser:dev": "esbuild src/browser.ts --bundle --outfile=dist/esbuild/browser.js",
         "esbuild-browser:watch": "esbuild src/browser.ts --bundle --watch --outfile=dist/esbuild/browser.js",
